@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinCoroutines">
+        <activity android:name=".SequentalTaskActivity" />
         <activity android:name=".TaskMainActivity" />
         <activity android:name=".StarterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SecondActivity" />
-        <activity android:name=".SequentalTaskActivity">
+        <activity android:name=".RunBlockingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
