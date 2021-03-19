@@ -1,7 +1,9 @@
 package com.example.kotlincoroutines
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
 import kotlin.random.Random
@@ -9,6 +11,14 @@ import kotlin.random.Random
 class RunBlockingViewModel: ViewModel() {
 
     var count: MutableLiveData<String> = MutableLiveData("0")
+
+    /*var demo: LiveData<String> = Transformations.map(count) { data ->
+        data+data+"Hello"
+    }*/
+
+    var demo: LiveData<String> = Transformations.switchMap(count) { data ->
+        count
+    }
 
     fun updateCounter(){
         var currentCount = count.value!!.toInt() + 1

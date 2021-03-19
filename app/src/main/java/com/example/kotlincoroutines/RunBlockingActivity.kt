@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.kotlincoroutines.databinding.ActivityRunBlockingBinding
@@ -27,11 +28,13 @@ class RunBlockingActivity : AppCompatActivity() {
         button = binding.button
        // text = binding.text
 
+        runBlockingViewModel.main()
 
 
         button.setOnClickListener {
             runBlockingViewModel.updateCounter()
-            runBlockingViewModel.main()
+            Toast.makeText(this, "${runBlockingViewModel.demo.value}", Toast.LENGTH_SHORT)
+                .show()
             //text.text = (count++).toString()
 
         }
